@@ -1,7 +1,7 @@
 {
 	"name": "Angular Dev Env",
 	"dockerFile": "Dockerfile",
-	"forwardPorts": [4200],
+	"forwardPorts": [5000],
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [

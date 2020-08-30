@@ -5,4 +5,5 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 ARG USERNAME=node
 ARG NGVERSION=9.1.12
 
+RUN sudo -u ${USERNAME} npm install -g npm
 RUN sudo -u ${USERNAME} npm install -g tslint typescript @angular/cli@${NGVERSION}

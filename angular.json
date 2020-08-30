@@ -28,7 +28,7 @@
               "projects/shell/src/assets"
             ],
             "styles": [
-              "projects/shell/src/styles.css"
+              "projects/shell/src/styles.scss"
             ],
             "scripts": []
           },

@@ -1,4 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
-h1 {
-    color: burlywood;
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.shell-root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.shell-content {
+  flex: 1;
+  background-color: whitesmoke;
+}
+
+header {
+  display: flex;
+  height: 48px;
+  background-color: #fff;
+  border-bottom: 2px #d3d3d3 solid;
+  align-items: center;
+  padding: 6px 12px;
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+footer {
+  background-color: #4a5664;
+  height: 24px;
+  color: white;
+  font-size: 11pt;
+  padding-left: 12px;
+  line-height: 24px;
 }

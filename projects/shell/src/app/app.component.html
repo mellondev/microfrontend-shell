@@ -1,20 +1,22 @@
 <header>
-  <div>Auth Testing</div>
+  <div class="logo"><img src='assets/md-shell-logo.png' /></div>
   <div class="navigation">
     <nav mat-tab-nav-bar mat-align-tabs="center">
       <a mat-tab-link [routerLink]="'home'" routerLinkActive #rlaHome="routerLinkActive" [active]="rlaHome.isActive">
         Home
       </a>
-      <a mat-tab-link [routerLink]="'jobs'" routerLinkActive #rlaJobs="routerLinkActive" [active]="rlaJobs.isActive">Jobs</a>
-      <a mat-tab-link [routerLink]="'features'" routerLinkActive #rlaFeatures="routerLinkActive" [active]="rlaFeatures.isActive">Features</a>
+      <a mat-tab-link [routerLink]="'jobs'" routerLinkActive #rlaJobs="routerLinkActive"
+        [active]="rlaJobs.isActive">Jobs</a>
+      <a mat-tab-link [routerLink]="'features'" routerLinkActive #rlaFeatures="routerLinkActive"
+        [active]="rlaFeatures.isActive">Features</a>
     </nav>
   </div>
-  <div><img [src]="(auth.userProfile$ | async)?.picture" class="user-avatar"/></div>
+  <div class="user-login">
+    <img *ngIf="auth.loggedIn" [src]="(auth.userProfile$ | async)?.picture" class="user-avatar" />
+    <button mat-stroked-button color="primary" *ngIf="!auth.loggedIn" (click)="auth.login()">Log In</button>
+  </div>
 </header>
 <div class="shell-content">
-  <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-  <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
-  <h2>{{ (auth.userProfile$ | async)?.nickname }}</h2>
   <router-outlet></router-outlet>
 </div>
-<footer>Hello from the footer</footer>
+<footer> <a (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a></footer>

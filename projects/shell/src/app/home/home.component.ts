@@ -7,11 +7,15 @@ import { AuthService } from '../auth.service';
   // styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  idToken = '';
   name = '';
   constructor(public auth: AuthService) {
-    
+    auth.userProfile$.subscribe(x => {
+      if (x) {
+        console.log(x);
+        this.name = x.nickname;
+      }
+    });
   }
-  ngOnInit() {}
 
- }
+  ngOnInit() {}
+}

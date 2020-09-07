@@ -11,7 +11,7 @@ const shellConfig = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist/shell'),
-    port: 5000,
+    port: 4200,
   },
   module: {
     rules: [
@@ -50,7 +50,7 @@ const shellConfig = {
     chunkFilename: '[id].[chunkhash].js',
   },
   devtool: 'inline-source-map',
-  mode: 'production',
+  mode: 'development',
 };
 
 module.exports = [shellConfig];

@@ -37,10 +37,10 @@ body {
 .shell-content {
   flex: 1;
   background-color: #eef1f6;
-  // background-image: url('assets/md-background.png');
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-position: center;
+  background-image: url('assets/md-background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 header {
@@ -85,4 +85,9 @@ footer {
   border-radius: 50%;
   flex-shrink: 0;
   object-fit: cover;
+}
+
+.navigation .mat-tab-link {
+  font-weight: 600;
+  font-size: 16px;
 }

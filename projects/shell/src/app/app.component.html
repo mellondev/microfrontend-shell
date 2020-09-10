@@ -17,6 +17,7 @@
   </div>
 </header>
 <div class="shell-content">
+  <mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
   <router-outlet></router-outlet>
 </div>
 <footer> <a (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a></footer>

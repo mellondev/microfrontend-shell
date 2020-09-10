@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const shellConfig = {
   entry: ['./projects/shell/src/polyfills.ts', './projects/shell/src/main.ts'],
@@ -24,9 +25,22 @@ const shellConfig = {
           { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          context: path.resolve(__dirname, "src/"),
+          outputPath: 'assets',
+          publicPath: 'assets',
+          useRelativePaths: true,
+          esModule: false
+      }
+      },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       remotes: {},
       shared: ['@angular/core', '@angular/common', '@angular/router'],

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -6,8 +7,15 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   // styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   userName: string;
-
+  private _loading = new BehaviorSubject<boolean>(true);
+  loading$ = this._loading.asObservable();
   constructor(public auth: AuthService) {}
+
+  ngOnInit() {
+    this._loading.next(false);
+  }
+
+  
 }

@@ -112,6 +112,46 @@
           }
         }
       }
+    },
+    "shell-core": {
+      "projectType": "library",
+      "root": "projects/shell-core",
+      "sourceRoot": "projects/shell-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/shell-core/tsconfig.lib.json",
+            "project": "projects/shell-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shell-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shell-core/src/test.ts",
+            "tsConfig": "projects/shell-core/tsconfig.spec.json",
+            "karmaConfig": "projects/shell-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shell-core/tsconfig.lib.json",
+              "projects/shell-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "shell"
 }

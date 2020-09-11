@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ShellCoreService {
 
-  constructor() { }
+  loginStatus: string;
+
+  constructor() { 
+    this.loginStatus = 'Logged in';
+  }
 }

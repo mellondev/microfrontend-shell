@@ -16,7 +16,7 @@
       "dom"
     ],
     "paths": {
-      "shell-core": [
+      "@mellondev/shell-core": [
         "dist/shell-core"
       ]
     }

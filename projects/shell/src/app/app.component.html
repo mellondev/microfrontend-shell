@@ -5,10 +5,8 @@
       <a mat-tab-link [routerLink]="'home'" routerLinkActive #rlaHome="routerLinkActive" [active]="rlaHome.isActive">
         Home
       </a>
-      <a mat-tab-link [routerLink]="'jobs'" routerLinkActive #rlaJobs="routerLinkActive"
-        [active]="rlaJobs.isActive">Jobs</a>
-      <a mat-tab-link [routerLink]="'features'" routerLinkActive #rlaFeatures="routerLinkActive"
-        [active]="rlaFeatures.isActive">Features</a>
+      <a mat-tab-link *ngFor="let mfe of microfrontends" [routerLink]="mfe.routePath" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">{{ mfe.displayName }}</a>
     </nav>
   </div>
   <div class="user-login">

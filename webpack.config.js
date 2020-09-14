@@ -43,7 +43,7 @@ const shellConfig = {
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       remotes: {},
-      shared: ['@angular/core', '@angular/common', '@angular/router'],
+      shared: ['@angular/core', '@angular/common', '@angular/router', '@angular/material'],
     }),
     new AotPlugin({
       skipCodeGeneration: false,

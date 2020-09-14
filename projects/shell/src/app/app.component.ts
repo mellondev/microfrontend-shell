@@ -11,21 +11,13 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   // styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   userName: string;
-  microfrontends: Microfrontend[] = [];
 
-  private _loading = new BehaviorSubject<boolean>(true);
-  loading$ = this._loading.asObservable();
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  loading$ = this.loadingSubject.asObservable();
 
-  constructor(private router: Router, public auth: AuthService, public mfService: MicrofrontendService) {}
-
-  async ngOnInit(): Promise<void> {
-    this.microfrontends = await this.mfService.lookup();
-    const routes = buildRoutes(this.microfrontends);
-    this.router.resetConfig(routes);
-    console.log(this.microfrontends);
-    console.log(routes);
-    this._loading.next(false);
+  constructor(public auth: AuthService, public mfeService: MicrofrontendService) {
   }
+
 }

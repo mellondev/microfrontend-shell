@@ -2,7 +2,9 @@
 	"name": "Angular Dev Env",
 	"dockerFile": "Dockerfile",
 	"forwardPorts": [4200],
-
+	"runArgs": [
+		"--network", "host",
+	],
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"dbaeumer.vscode-eslint",

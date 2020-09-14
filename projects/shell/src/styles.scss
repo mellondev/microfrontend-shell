@@ -1,6 +1,21 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-header {
+  flex-shrink: 0;
+}
+
+.mat-card-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -91,3 +106,4 @@ footer {
   font-weight: 600;
   font-size: 16px;
 }
+

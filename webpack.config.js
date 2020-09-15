@@ -20,7 +20,12 @@ const shellConfig = {
       {
         test: /\.(scss|sass)$/,
         use: [
-          { loader: 'style-loader' },
+          {
+            loader: 'style-loader',
+            options: {
+              insert: 'body',
+            },
+          },
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
         ],
@@ -30,12 +35,12 @@ const shellConfig = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]',
-          context: path.resolve(__dirname, "src/"),
+          context: path.resolve(__dirname, 'src/'),
           outputPath: 'assets',
           publicPath: 'assets',
           useRelativePaths: true,
-          esModule: false
-      }
+          esModule: false,
+        },
       },
     ],
   },
@@ -43,7 +48,13 @@ const shellConfig = {
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       remotes: {},
-      shared: ['@angular/core', '@angular/common', '@angular/router', '@angular/material/card', '@angular/material/button'],
+      shared: [
+        '@angular/core',
+        '@angular/common',
+        '@angular/router',
+        '@angular/material/card',
+        '@angular/material/button',
+      ],
     }),
     new AotPlugin({
       skipCodeGeneration: false,

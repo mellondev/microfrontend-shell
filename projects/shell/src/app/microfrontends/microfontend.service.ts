@@ -23,7 +23,8 @@ export class MicrofrontendService {
     return [
       {
         // For Loading
-        remoteEntry: 'http://localhost:5000/remoteEntry.js',
+        // remoteEntry: 'http://localhost:5000/remoteEntry.js',
+        remoteEntry: 'https://red-wave-053790403.azurestaticapps.net/remoteEntry.js',
         remoteName: 'features',
         exposedModule: 'Module',
 

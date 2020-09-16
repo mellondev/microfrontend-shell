@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AuthService } from '@mellondev/shell-core';
+import { AuthService } from 'md-shell-core';
 import { MicrofrontendService } from './microfrontends/microfontend.service';
 import { Microfrontend } from './microfrontends/microfrontend';
 import { buildRoutes } from './utils/route-utils';

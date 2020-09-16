@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@mellondev/shell-core';
+import { AuthService } from 'md-shell-core';
 
 @Component({
   selector: 'app-home',

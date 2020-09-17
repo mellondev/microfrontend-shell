@@ -5,14 +5,10 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const shellConfig = {
+module.exports = {
   entry: ['./projects/shell/src/polyfills.ts', './projects/shell/src/main.ts'],
   resolve: {
     mainFields: ['browser', 'module', 'main'],
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist/shell'),
-    port: 4200,
   },
   module: {
     rules: [
@@ -70,12 +66,7 @@ const shellConfig = {
     }),
   ],
   output: {
-    filename: '[id].[name].js',
-    path: __dirname + '/dist/shell',
-    chunkFilename: '[id].[chunkhash].js',
-  },
-  devtool: 'inline-source-map',
-  mode: 'development',
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist/shell'),
+  }
 };
-
-module.exports = [shellConfig];

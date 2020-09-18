@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const AotPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -6,9 +7,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./projects/shell/src/polyfills.ts', './projects/shell/src/main.ts'],
   resolve: {
-    mainFields: ['browser', 'module', 'main'],
+    mainFields: ['browser', 'module', 'main']
   },
   module: {
     rules: [
@@ -52,14 +52,11 @@ module.exports = {
         '@angular/material/button',
       ],
     }),
-    new AotPlugin({
-      skipCodeGeneration: false,
-      tsConfigPath: './projects/shell/tsconfig.app.json',
-      directTemplateLoading: true,
-      entryModule: path.resolve(__dirname, './projects/shell/src/app/app.module#AppModule'),
-    }),
     new CopyPlugin({
-      patterns: [{ from: 'projects/shell/src/assets', to: 'assets' }],
+      patterns: [
+        { from: 'projects/shell/src/assets', to: 'assets' },
+        { from: 'projects/shell/src/favicon.ico', to: '' },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: './projects/shell/src/index.html',
@@ -68,5 +65,5 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist/shell'),
-  }
+  },
 };

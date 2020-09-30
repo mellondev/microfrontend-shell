@@ -50,6 +50,7 @@ module.exports = {
         '@angular/router',
         '@angular/material/card',
         '@angular/material/button',
+        'md-shell-core'
       ],
     }),
     new CopyPlugin({

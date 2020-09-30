@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
 import { AuthService } from 'md-shell-core';
+import { BehaviorSubject } from 'rxjs';
 import { MicrofrontendService } from './microfrontends/microfontend.service';
-import { Microfrontend } from './microfrontends/microfrontend';
-import { buildRoutes } from './utils/route-utils';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
